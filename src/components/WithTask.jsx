@@ -3,11 +3,13 @@ import trash from '../assets/trash.png'
 
 
 export function WithTask(props) {
+
+
   return(
-    <WithTasks>
-      <input type='checkbox' concluded='false'  ></input>
+    <WithTasks concluded={props.concluded} >
+      <input type='checkbox'></input>
       <p>{props.titulo}</p>
-      <button><img src={trash} /></button>
+      <button onClick={props.deleteTask} ><img src={trash} /></button>
     </WithTasks>
   )
-}
+} 

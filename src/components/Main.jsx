@@ -39,7 +39,9 @@ export function Main(){
     setNewTask(event.target.value);
   }
 
-  console.log(taskList)
+  function deleteTask(){
+    console.log('deletado')
+  }
 
   return(
     
@@ -67,15 +69,14 @@ export function Main(){
         </HeaderTask>
 
         { thereTask > 0 ? 
-          taskList.map(task =>{
+          taskList.map((task,  i) =>{
             return (
             <WithTask
-
+            key={task.id}
             titulo={task.title}
-              
-              //completo={task.isComplete}
-              
-              // eliminar={task.isDelited}
+            complete={task.isComplete}
+            eliminar={task.isDelited}
+            deleteTask={deleteTask}
             />
           )
           })
