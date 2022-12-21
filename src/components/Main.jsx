@@ -39,9 +39,10 @@ export function Main(){
     setNewTask(event.target.value);
   }
 
-  function deleteTask(){
-    console.log('deletado')
-  }
+  function deleteTask(taskdelited){
+    const delitedTask = taskList.filter((task) => task.id !== taskdelited)
+    setTaskList(delitedTask)
+    }
 
   return(
     
@@ -76,7 +77,7 @@ export function Main(){
             titulo={task.title}
             complete={task.isComplete}
             eliminar={task.isDelited}
-            deleteTask={deleteTask}
+            deleteTask={() => deleteTask(task.id)}
             />
           )
           })
