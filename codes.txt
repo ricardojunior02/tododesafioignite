@@ -1,0 +1,4 @@
+    const checkTasks= taskList.filter((task) => task.id == checkedChanged) || taskList.filter((task) => task.isComplete == checkChangedComplete)
+    const changeCheck = checkTasks.find((task) => task.id === checkedChanged)
+    const changingCheck = changeCheck.isComplete
+    const setNewValueToCheck = changingCheck === false ? true : false

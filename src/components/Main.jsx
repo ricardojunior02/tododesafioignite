@@ -24,6 +24,7 @@ export function Main(){
 
   const [newTask, setNewTask] = useState([])
 
+
   function handleCreateNewTask(){
     event.preventDefault();
     setTaskList([...taskList, {
@@ -42,7 +43,15 @@ export function Main(){
   function deleteTask(taskdelited){
     const delitedTask = taskList.filter((task) => task.id !== taskdelited)
     setTaskList(delitedTask)
-    }
+  }
+
+
+ function itsComplete (checkedChanged, checkChangedComplete){
+  const checkTasks= taskList.filter((task) => task.id == checkedChanged) || taskList.filter((task) => task.isComplete == checkChangedComplete)
+  const changeCheck = checkTasks.find((task) => task.id === checkedChanged)
+
+}
+
 
   return(
     
@@ -75,9 +84,10 @@ export function Main(){
             <WithTask
             key={task.id}
             titulo={task.title}
-            complete={task.isComplete}
+            isComplete={task.isComplete}
             eliminar={task.isDelited}
             deleteTask={() => deleteTask(task.id)}
+            itsComplete={() => itsComplete(task.id, task.isComplete )}
             />
           )
           })

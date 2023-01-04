@@ -22,10 +22,17 @@ export const Button = styled.form`
     border: 1px solid ${(props) => props.theme['gray-700']};
     padding: 16px;
     width: 39rem;
+    min-width: 39rem;
     border-radius: 8px;
     margin-right: 8px;
     color: ${(props) => props.theme['gray-300']};
     max-height: 54px;
+    resize: none;
+  }
+
+  textarea:focus {
+    color: ${(props) => props.theme['white']};
+    border: 1px solid ${(props) => props.theme['purple-dark']}
   }
 `
 
